@@ -13,9 +13,11 @@ import org.csu.petstore.persistence.ProductMapper;
 import org.csu.petstore.service.CatalogService;
 import org.csu.petstore.vo.ItemVO;
 import org.csu.petstore.vo.ProductVO;
+import org.csu.petstore.vo.SearchVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("catalogService")
@@ -86,4 +88,25 @@ public class CatalogServiceImpl implements CatalogService {
 
         return itemVO;
     }
+
+    @Override
+    public List<SearchVO> getSearch(String keyword) {
+        List<SearchVO> searchVOList = new ArrayList<>();
+
+        QueryWrapper<Product> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name", keyword);
+        List<Product> productList = productMapper.selectList(queryWrapper);
+        for (Product product : productList) {
+            SearchVO searchVO = new SearchVO();
+            searchVO.setSearchName(product.getName());
+            searchVO.setSearchId(product.getProductId());
+            String [] temp = product.getDescription().split("\"");
+            searchVO.setDescriptionImage(temp[1]);
+            searchVO.setDescriptionText(temp[2].substring(1));
+            searchVOList.add(searchVO);
+        }
+        return searchVOList;
+    }
+
+
 }

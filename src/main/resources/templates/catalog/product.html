@@ -38,13 +38,11 @@
                 <td th:text="${item.attribute1}">
                     Item Attributes
                 </td>
-<!--                <td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00"/></td>-->
                 <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}">Item List Price</td>
                 <td>
                 <a th:href="'/cart/addItemToCart?workingItemId='+${item.itemId}">Add to Cart</a>
                 </td>
             </tr>
-<!--            </c:forEach>-->
         </table>
 
     </div>

@@ -52,7 +52,7 @@
 
             <tr>
                 <td>
-                    <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>
+                    <a th:href="'/cart/addItemToCart?workingItemId='+${item.itemId}" class="Button">Add to Cart</a>
                 </td>
             </tr>
         </table>

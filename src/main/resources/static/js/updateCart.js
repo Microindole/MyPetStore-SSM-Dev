@@ -20,7 +20,7 @@ function updateCart() {
     //var workingItemId = document.getElementById('workingItemId').value;
     //sendRequest("updateCartQuantities?username=" + username);
     var quantity = document.getElementById("quantity").value;
-    sendRequest("updateCartJSServlet?quantity="+ quantity);
+    sendRequest("/cart/updateCartJS?quantity="+ quantity);
     //sendRequest("updateCartQuantities");
 }
 

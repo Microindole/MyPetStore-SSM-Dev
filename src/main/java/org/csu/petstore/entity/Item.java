@@ -4,11 +4,15 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 
 @Data
-public class Item {
+public class Item implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+
     @TableId(value = "itemid")
     private String itemId;
     @TableField(value = "productid")

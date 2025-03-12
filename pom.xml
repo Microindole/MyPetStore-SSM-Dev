@@ -63,6 +63,40 @@
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
             <version>3.5.10.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jeffreyning</groupId>
+            <artifactId>mybatisplus-plus</artifactId>
+            <version>1.5.1-RELEASE</version>
+        </dependency>
+        <!--aop用于插入操作日志 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.22</version>
+        </dependency>
+<!--        验证码框架-->
+        <dependency>
+            <groupId>com.oopsguy.kaptcha</groupId>
+            <artifactId>kaptcha-spring-boot-starter</artifactId>
+            <version>1.0.0-beta-2</version>
+        </dependency>
+        <!-- 引入自己写的jar包 -->
+        <dependency>
+            <groupId>com.northcastle</groupId>
+            <artifactId>utile</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/kaptcha-2.3.2.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>

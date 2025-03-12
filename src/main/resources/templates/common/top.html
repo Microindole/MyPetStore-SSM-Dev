@@ -35,22 +35,22 @@
 
                 <div class="user-info">
                 <span class="user not-login">
-                    <a th:if="${session.account} == null" href="signonForm" class="link">Sign In</a>
+                    <a th:if="${session.account == null}" href="/account/signonForm" class="link">Sign In</a>
                      <img class="img1" align="middle" src="../images/separator.gif" />
-                    <a th:if="${session.account} == null" href="newAccountForm" class="link">Register</a>
+                    <a th:if="${session.account == null}" href="/account/newAccountForm" class="link">Register</a>
                 </span>
 
-                <span th:if="${session.account} != null" class="user login">
-                    <a class="link-text">Welcome here!  <a th:text="${${session.account.username}}" class="username"></a>
+                <span th:if="${session.account != null}" class="user not-login">
+                    <a class="link-text">Welcome here!  <a th:text="${session.account.username}" class="username">username</a>
                     </a>
                      <img class="img1" align="middle" src="../images/separator.gif" />
-                    <a href="signOut" class="link">Sign Out</a>
+                    <a href="/account/signOut" class="link">Sign Out</a>
                     <img class="img1" align="middle" src="../images/separator.gif" />
                 </span>
             </div>
             <ul class="nav-top-list">
                 <li class="nav-top-item">
-                    <a href="cartForm" class="link">
+                    <a href="/cart/viewCart" class="link">
                         <i class="fa fa-shopping-cart"></i>
                         Cart
                     </a>
@@ -61,7 +61,7 @@
                     </li>
                     <img th:if="${session.account != null}" class="img1" align="middle" src="../images/separator.gif" />
                     <li th:if="${session.account != null}" class="nav-top-item">
-                        <a href="saveAccount?username=${sessionScope.account.username}" class="link">My Account</a>
+                        <a href="/account/editForm" class="link">My Account</a>
                     </li>
                     <img th:if="${session.account != null}" class="img1" align="middle" src="../images/separator.gif" />
 
@@ -75,7 +75,7 @@
     <div class="nav-search">
         <div class="w">
             <a href="/catalog/index" class="link logo">JPetStore</a>
-            <form class="search-content" action="searchProductsForm" method="post">
+            <form class="search-content" action="/catalog/searchProducts" method="post">
                 <input id="keyword"  name="keyword"  type="text" class="search-input" placeholder="Please enter the name of the product">
                 <button class="btn search-btn">Search</button>
             </form>
